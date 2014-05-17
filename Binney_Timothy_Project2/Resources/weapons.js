@@ -94,4 +94,4 @@ for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
 var weaponSections = [rangedSection, meleeSection];
 
 weaponTable.setData(weaponSections);
-
+mainWindow.add(weaponTable);
