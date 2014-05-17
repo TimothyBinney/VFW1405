@@ -64,7 +64,6 @@ var getInfo = function(){
 	});
 	var infoText = Ti.UI.createLabel({
 		text: this.detail,
-		top: 20,
 	});
 	infoWindow.add(infoText);
 	navWindow.openWindow(infoWindow);
@@ -94,4 +93,4 @@ for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
 var weaponSections = [rangedSection, meleeSection];
 
 weaponTable.setData(weaponSections);
-
+mainWindow.add(weaponTable);
