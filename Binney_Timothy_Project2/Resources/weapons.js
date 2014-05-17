@@ -91,4 +91,10 @@ for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
 var weaponSections = [rangedSection, meleeSection];
 
 weaponTable.setData(weaponSections);
-navWindow.add(weaponTable);
+navWindow.add(weaponTable); /*This causes an issue where your table will hover over your windows 
+							that are opening/closing (sliding) within your nav window object.
+							You should add your weaponTable to the the window that is opening inside
+							the nav window object. As a general rule you almost will never add an object
+							to a nav window unless you want something to hover over all your windows as
+							you are seeing now.*/
+
