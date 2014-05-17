@@ -38,7 +38,7 @@ var weapons = {
 
 // Main Code
 var weaponTable = Ti.UI.createTableView({
-	top: 0,
+	top: titleView.top + titleView.height + 10,
 });
 
 if (Ti.Platform.name === "iPhone OS"){
@@ -60,11 +60,10 @@ var rangedSection = Ti.UI.createTableViewSection({
 var getInfo = function(){
 	var infoWindow = Ti.UI.createWindow({
 		title: this.title,
-		backgroundColor: "white"
+		backGroundColor: "#fff",
 	});
 	var infoText = Ti.UI.createLabel({
-		text: this.detail,
-		top: 20,
+		text: this.description,
 	});
 	infoWindow.add(infoText);
 	navWindow.openWindow(infoWindow);
@@ -74,7 +73,6 @@ var getInfo = function(){
 for(var i=0, j=weapons.Ranged.weaponList.length; i<j; i++){
 	var theRow = Ti.UI.createTableViewRow({
 		title: weapons.Ranged.weaponList[i].title,
-		detail: weapons.Ranged.weaponList[i].description,
 		hasChild: true
 	});
 	rangedSection.add(theRow);
@@ -84,7 +82,6 @@ for(var i=0, j=weapons.Ranged.weaponList.length; i<j; i++){
 for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
 	var theRow = Ti.UI.createTableViewRow({
 		title: weapons.Melee.weaponList[i].title,
-		detail: weapons.Melee.weaponList[i].description,
 		hasChild: true
 	});
 	meleeSection.add(theRow);
@@ -94,4 +91,4 @@ for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
 var weaponSections = [rangedSection, meleeSection];
 
 weaponTable.setData(weaponSections);
-mainWindow.add(weaponTable);
+navWindow.add(weaponTable);

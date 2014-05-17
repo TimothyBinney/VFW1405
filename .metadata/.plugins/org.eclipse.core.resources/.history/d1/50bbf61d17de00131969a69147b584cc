@@ -17,5 +17,5 @@ var titleView = Ti.UI.createView({
 var loadFile = require ("weapons");
 
 
-
+navWindow.add(titleView);
 navWindow.open();
