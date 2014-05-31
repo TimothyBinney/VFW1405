@@ -1,0 +1,55 @@
+var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+	var imagesFile = imagesFolder.getDirectoryListing();
+
+var makeGallery = function(){	
+	var galleryWindow = Ti.UI.createWindow({
+		title: "Gallery",
+	});
+
+	var galleryView = Ti.UI.createView({
+		backgroundColor: "#fff",
+		title: "Random Image",
+		color: "#23ba00",
+		textAlign: left,
+		bottom: 0,
+		height: 50,
+		width: "100%",
+	});
+	
+	var randomImage = [];
+	
+	var array = function(num){
+		for (var i = 0; i<30; i++){
+			num[i] = i;
+		};
+		num.sort(function () {
+		return Math.random() - 0.5;
+	});
+	return num;
+};
+	
+var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+	var imagesFile = imagesFolder.getDirectoryListing();
+
+var getImage = function(event){
+	var imageWindow = Ti.UI.createWindow({
+	title: event.source.names,
+	backgroundColor: "#fff",
+	});
+
+
+var largeImage = Ti.UI.createImageView({
+	image: event.source.image,
+});
+
+imageWindow.add(largeImage);
+mainNav.openWindow(imageWindow);
+};
+
+galleryView.addEventListener("click", getImage);
+
+galleryWindow.add(galleryView);
+mainNav.openWindow(galleryWindow);
+};
+
+galButton.addEventListener("click", makeGallery);

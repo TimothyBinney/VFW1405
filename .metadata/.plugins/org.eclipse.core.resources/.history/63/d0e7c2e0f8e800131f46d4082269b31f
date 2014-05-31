@@ -1,0 +1,55 @@
+var imagesFolder = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, "Images");
+	var imagesFile = imagesFolder.getDirectoryListing();
+
+var makeGallery = function(){	
+	var galleryWindow = Ti.UI.createWindow({
+		title: "Gallery",
+	});
+
+	var galleryView = Ti.UI.createView({
+		backgroundColor: "#fff",
+		title: "Random Image",
+		color: "#23ba00"
+		textAlign: left,
+		bottom: 0,
+		height: 50,
+		width: "100%"
+	});
+	
+	for(var i=0; i<imagesFile.length; i++){
+		var imageViews = Ti.UI.createImageView({
+		image: "Images/" + imagesFile[i],
+		borderRadius: 4,
+		top: margin,
+		left: margin,
+		right: margin,
+		width: objectWidth,
+		height: objectHeight,
+		names: imagesFile[i],
+		});
+	console.log(imageViews.image);
+	galleryView.add(imageViews);
+};
+
+var getImage = function(event){
+	var imageWindow = Ti.UI.createWindow({
+	title: event.source.names,
+	backgroundColor: "#fff",
+	});
+
+
+var largeImage = Ti.UI.createImageView({
+	image: event.source.image,
+});
+
+imageWindow.add(largeImage);
+mainNav.openWindow(imageWindow);
+};
+
+galleryView.addEventListener("click", getImage);
+
+galleryWindow.add(galleryView);
+mainNav.openWindow(galleryWindow);
+};
+
+galButton.addEventListener("click", makeGallery);
