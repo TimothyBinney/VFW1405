@@ -1,0 +1,26 @@
+var quizFunction = function(){
+	
+	
+	var quizWindow = Ti.UI.createWindow({
+  		backgroundColor: 'white'
+});
+
+var textField = Ti.UI.createTextField({
+  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+  color: 'white',
+  top: 10, 
+  left: 10,
+  width: 250, 
+  height: 60
+});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+};

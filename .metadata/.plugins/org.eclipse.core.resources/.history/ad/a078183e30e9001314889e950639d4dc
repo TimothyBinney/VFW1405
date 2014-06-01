@@ -53,7 +53,7 @@ var getInfo = function(){
 		backgroundColor: "white"
 	});
 	var infoText = Ti.UI.createLabel({
-		text: this.detail,
+		text: this.description,
 		top: 20,
 	});
 	infoWindow.add(infoText);
@@ -80,7 +80,6 @@ var getInfo = function(){
 for(var i=0, j=weapons.Ranged.weaponList.length; i<j; i++){
 	var theRow = Ti.UI.createTableViewRow({
 		title: weapons.Ranged.weaponList[i].title,
-		detail: weapons.Ranged.weaponList[i].description,
 		hasChild: true
 	});
 	rangedSection.add(theRow);
@@ -90,7 +89,6 @@ for(var i=0, j=weapons.Ranged.weaponList.length; i<j; i++){
 for(var i=0, j=weapons.Melee.weaponList.length; i<j; i++){
 	var theRow = Ti.UI.createTableViewRow({
 		title: weapons.Melee.weaponList[i].title,
-		detail: weapons.Melee.weaponList[i].description,
 		hasChild: true
 	});
 	meleeSection.add(theRow);
